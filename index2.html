@@ -32,7 +32,7 @@
 	<body>
 
 		<div id="container"></div>
-		<div id="info"><a href="http://threejs.org" target="_blank">three.js</a> - earth demo</div>
+		<div id="info"><a href="http://threejs.org" target="_blank">three.js</a> - test D20</div>
 
 
 		<script src="http://mrdoob.github.com/three.js/build/three.min.js"></script>
@@ -81,7 +81,8 @@
 				} );
 
 				
-
+				group.rotation.z+=0.523599;
+				
 				renderer = new THREE.WebGLRenderer();
 				renderer.setSize( window.innerWidth, window.innerHeight );
 				document.getElementById('container').appendChild(renderer.domElement);
@@ -133,11 +134,11 @@
 
 			function render() {
 
-				camera.position.x += ( mouseX - camera.position.x ) * 0.05;
-				camera.position.y += ( - mouseY - camera.position.y ) * 0.05;
+				//camera.position.x += ( mouseX - camera.position.x ) * 0.05;
+				//camera.position.y += ( - mouseY - camera.position.y ) * 0.05;
 				camera.lookAt( scene.position );
 
-				group.rotation.y -= 0.005;
+				//group.rotation.y -= 0.005;
 				//group.rotation.y -= 0.005*scroll;
 
 				renderer.render( scene, camera );

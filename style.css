@@ -1,1 +1,243 @@
+/*POLICES*/
 
+@font-face				/*police en plus*/
+{
+    font-family: 'Amatic SC';
+    src: url('polices/amatic.ttf') format('truetype');
+}
+
+/*MISE EN PAGE DES BLOCS*/
+
+/*#bloc*/ body  		/*englobe tout donc le liseré et tout le reste à droite*/
+{
+	/*display : flex;*/
+	font-family: /*'Trebuchet MS',*/handlee, Cambria, Serif;
+	font-size : 1.1em;
+	background-color : #e5f3f9;
+}
+
+
+#bloc1 		/*englobe le header et le reste en dessous*/
+{
+	background : url('pictures/fond_page2.png');
+	background-repeat :repeat-x;
+	background-position : top;
+	display : flex;
+	flex-direction : column;
+}
+
+@media all and (min-width:1024px)
+{
+	#bloc1 		/*englobe le header et le reste en dessous*/
+	{
+		margin-left : 203px; /*permet de n'avoir rien de caché sous le liseré*/
+	}
+}
+
+@media all and (min-width:1024px)
+{
+		#bloc2 		/*englobe les trois parties du CV*/
+		{
+			display : flex;
+			justify-content : center;
+		}
+}
+
+@media all and (max-width:1024px)
+{
+		#bloc2 		/*englobe les trois parties du CV*/
+		{
+			/*display : flex;*/
+			justify-content : center;
+		}
+}
+
+nav
+{
+	display : flex;
+	flex-direction :column;
+	margin-left : 25px;
+}
+
+#lisere
+{
+	width : 203px;
+	height : 100%;
+	position : fixed; /*ne bouge pas pendant le scroll*/
+	background : url('pictures/montagne.png');
+	background-repeat :no-repeat;
+	background-position : bottom;
+	background-color : #85cee4;
+	box-shadow : 4px, 4px, 5px, black;
+	display : flex;
+	flex-direction : column; /*photo de profil et sommaire sont mis l'un en dessous de l'autre*/
+	}
+
+
+@media all and (max-width:1024px)
+{
+	#lisere
+	{
+		display : none;
+	}
+}
+
+header
+{
+	height : 200px;
+	display : flex;
+	flex-direction : column;
+}
+
+
+.contenu	/*les boites contenant chacune des trois parties du CV*/
+{
+	margin-left : 10px;
+	padding : 0px 25px 5px 5px;
+}
+
+@media all and (min-width:1024px)
+{
+	.contenu
+	{
+		border-right : 2px dashed #85cee4;
+	}
+	.contenu:nth-child(1), :nth-child(3)
+	{
+		flex : 1;
+	}
+
+	.contenu:nth-child(2) /*la partie "competences" est 1.5x plus grande*/
+	{
+		flex : 1.5;
+	}
+}
+
+/*TITRES et PHOTO DE PROFIL*/
+
+	h1
+	{
+		font-family : pompiere,'Amatic SC', Cambria;
+		color :  #c14040;
+		font-weight : normal;
+		text-transform : uppercase; /*pour mettre en majuscule*/
+		background-color : rgba(254,254,254,0.6);
+		font-size : 3.5em;
+		text-align : center;
+		width : 60%;
+		height : 75px;
+		margin : auto;
+		margin-top : 10px;
+	}
+@media all and (max-width:1024px)
+{
+	h1
+	{	
+		min-width : 200px;
+		text-position ; justify;
+		/*margin : auto;*/
+	}
+}
+
+#accroche
+{
+	text-align : center;
+	font-size : 1.3em;
+	background-color : rgba(254,254,254,0.6);
+	width : 60%;
+	margin : auto;
+}
+
+@media all and (max-width:1024px)
+{
+	#accroche
+	{
+		width : 80%;
+		margin-top: 20px;
+	}
+}
+
+#profil
+{
+	margin : 10px 0px 0px 20px;
+}
+
+h2
+{
+	font-family: pompiere, 'Amatic SC';
+	text-transform : uppercase;
+	font-size : 1.5em;
+	color : #c14040;
+	text-decoration : underline;
+	text-align : center;
+	background-color : rgba(254,254,254,0.6);
+	margin : auto;
+	width : 70%;
+	padding : 3px 10px 3px 10px;
+}
+
+@media all and (max-width:1024px)
+{
+	h2
+	{
+		margin-top : 20px;
+	}
+}
+
+h3
+{
+font-weight : bold;
+font-size : 1.2em;
+color : #69a0b1
+}
+
+/*LISTE*/
+
+ul
+{
+	list-style-image : 	url('pictures/carre.png'); /*personnalisation des puces*/
+}
+
+li
+{
+	font-weight : bold;
+}
+
+/*LIENS*/
+
+a
+{
+	color : #69a0b1;
+	text-decoration : none;
+}
+
+a:hover
+{
+	color : #c14040;
+	text-decoration : underline;
+}
+
+.lien_ext /*liens dans le sommaire*/
+{
+	font-size : 2em;
+	height : 50px;
+	color : white;
+	font-family : pompiere, 'Amatic SC', Cambria;
+	text-transform : uppercase;
+	font-weight : normal;
+} 
+
+.lien_ext:hover
+{
+	font-size : 2.2em;
+	color : #c14040;
+	text-decoration : underline;
+
+}
+
+/*AUTRE*/
+
+strong
+{
+	font-weight : normal;
+}

@@ -1,1 +1,75 @@
+/*POLICES*/
 
+@font-face				/*police en plus*/
+{
+    font-family: 'Dumbledor';
+    src: url('polices/dumb1.ttf') format('truetype');
+}
+
+/*MISE EN PAGE DES BLOCS*/
+
+#bloc1
+{
+	font-family : Dumbledor, Tahoma, cambria;
+	display : flex;
+	flex-direction : column;
+}
+
+header
+{
+	display : flex;
+	float-direction : row;
+	border : 1px solid  blue;
+	width : 100%;
+}
+
+
+#timeline
+{
+	display : flex;
+	flex-direction : row;
+	border : 1px solid  red;
+}
+
+#separation
+{
+	height : 500px;
+	border-right : 3px solid black;
+}
+
+/*sommaire*/
+nav
+{
+	flex : 1;
+}
+
+#de20
+{
+	border : 1px solid green;
+	flex : 2;
+}
+
+/*titres*/
+h1
+{
+ text-align : center;
+ 
+}
+
+.evenement h1
+{
+	text-decoration : underline;
+	text-transform : uppercase;
+}
+
+h2
+{
+	font-weight : normal;
+}
+
+/*TEXTE*/
+
+.special
+{
+	text-align : center;
+}

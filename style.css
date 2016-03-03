@@ -41,12 +41,12 @@ header
 
 #sommaire1
 {
-	float : right;
+	margin-right: 2px;
 }
 
 #sommaire2
 {
-	float : left;
+	margin-left : 2px;
 }
 nav
 {
@@ -64,7 +64,7 @@ nav
 
 nav table
 {
-	margin : auto;
+	width : 50%;
 }
 
 nav td

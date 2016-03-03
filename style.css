@@ -38,15 +38,6 @@ header
 
 /*SOMMAIRE*/
 
-#sommaire1
-{
-	float : right;
-}
-
-#sommaire2
-{
-	float : left;
-}
 
 nav:nth-child(1)
 {

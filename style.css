@@ -38,16 +38,6 @@ header
 
 /*SOMMAIRE*/
 
-
-#sommaire1
-{
-	margin-right: 2px;
-}
-
-#sommaire2
-{
-	margin-left : 2px;
-}
 nav
 {
 	flex : 1;
@@ -66,8 +56,17 @@ nav td
 {
 	border : 1px solid black;
 	padding : 5px 2px 2px 2px;
-	margin-right : 2px;
 	width : 50%;
+}
+
+nav #droite
+{
+	margin-right : 2px;
+}
+
+nav #gauche
+{
+	margin-left : 2px;
 }
 
 a

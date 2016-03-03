@@ -55,7 +55,7 @@ nav
 	text-align : center;
 }
 
-#de20:nth-child(2)
+#de20
 {
 	flex : 2;
 	border : 1px solid green;

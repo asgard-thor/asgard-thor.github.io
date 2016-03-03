@@ -37,7 +37,13 @@ header
 
 
 /*SOMMAIRE*/
-nav
+
+#sommaire1
+{
+	float : right;
+}
+
+nav:nth-child(1)
 {
 	flex : 1;
 	text-transform : uppercase;

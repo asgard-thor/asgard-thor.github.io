@@ -53,21 +53,21 @@ nav
 
 }
 
-/*nav td
+nav td
 {
 	border : 1px solid black;
 	padding : 5px 2px 2px 2px;
 	width : 50%;
-}*/
+}
 
 #tab1
 {
-	float : right;
+	margin-right : 2px;
 }
 
 #tab2
 {
-	float : left;
+	margin-left : 2px;
 }
 
 a

@@ -52,11 +52,12 @@ nav
 
 }
 
-nav td
+nav tr
 {
 	border : 1px solid black;
 	padding : 5px 2px 2px 2px;
 	width : 50%;
+	margin-right : 2px;
 }
 
 nav #droite

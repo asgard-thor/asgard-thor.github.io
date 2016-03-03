@@ -9,7 +9,28 @@
 body
 {
 	font-family : 'Dumbledor 1', Tahoma, cambria;
+	background-image : url('images/fond_kraft.jpg');
+	background-size : cover;
 }
+
+p
+{
+	font-size : 1.2em;
+}
+
+@media all and (max-width:1024px)
+{
+	body
+	{
+		font-size : 1.5em;
+	}
+	
+	p
+	{
+		font-size : 1.3em;
+	}
+}
+
 
 /*MISE EN PAGE DES BLOCS*/
 
@@ -32,7 +53,7 @@ header
 {
 	header
 	{
-		flex-wrap : wrap;
+		flex-direction : column;
 	}
 }
 
@@ -42,7 +63,8 @@ nav
 	flex : 1;
 	text-transform : uppercase;
 	text-align : center;
-	font-size : 1.3em;
+	font-size : 1.2em;
+
 }
 
 #de20
@@ -59,19 +81,14 @@ nav table
 
 nav td
 {
-	border : 2px solid black;
 	padding : 5px 2px 2px 2px;
+	background-color : rgba(0,0,0,0.6);
+	box-shadow : 0px 0px 10px black inset;
 }
 
 @media all and (max-width:1024px)
 {
-	nav
-{
-	flex : 1;
-	text-transform : uppercase;
-	text-align : center;
-	font-size : 2em;
-}
+
 	#sommaire1:nth-child(1)
 	{
 		order : 2;
@@ -80,7 +97,6 @@ nav td
 	#de20:nth-child(2)
 	{
 		order : 1;
-		min-width : 1000px;
 		width : 100%;
 		height : 300px;
 	}
@@ -97,17 +113,16 @@ nav td
 	}
 }
 
-
 a
 {
-	color : black;
+	color : white;
 	text-decoration : none;
 	font-size : 1.3em;
 }
 
 a:hover
 {
-	color : brown;
+	color : firebrick;
 }
 
 /*TIMELINE*/
@@ -116,7 +131,8 @@ a:hover
 {
 	display : flex;
 	flex-direction : row;
-	border : 1px solid  red;
+	background-color : rgba(0,0,0,0.2);
+	box-shadow : 0px 0px 10px black inset;
 }
 
 #evenement1, #evenement2
@@ -139,10 +155,10 @@ a:hover
 	
 }
 
-
 #evenement1
 {
 	border-right : 2px solid black;
+
 }
 
 @media all and (max-width:1024px)
@@ -172,18 +188,30 @@ a:hover
 /*TITRES*/
 h1
 {
+	color : firebrick;
 	text-align : center;
-	font-size : 1.6em;
+	font-size : 1.8em;
 	text-transform : uppercase;
+	text-shadow : 2px 2px 2px black;
+	background-color : rgba(0,0,0,0.2);
+	box-shadow : 0px 0px 10px black inset;
+	padding : 10px;
+	width : 100%;
+	max-width : 800px;
+	margin : auto;
+	margin-top : 30px;
+	border-radius : 10px;
 }
 
 h2
 {
 	text-decoration : underline;
 	font-size : 1.4em;
-	font-weight : bold;
+	font-weight : normal;
 	text-transform : uppercase;
 	text-align : center;
+	color : white;
+	text-shadow : 2px 2px 5px black;
 }
 
 h3

@@ -44,7 +44,7 @@ header
 	float : right;
 }
 
-nav:nth-child(1)
+nav
 {
 	flex : 1;
 	text-transform : uppercase;

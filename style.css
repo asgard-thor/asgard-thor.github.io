@@ -1,4 +1,3 @@
-
 /*POLICES*/
 
 @font-face				/*police en plus*/
@@ -23,32 +22,26 @@ body
 header
 {
 	display : flex;
-	float-direction : row;
+	flex-direction : row;
 	border : 1px solid  blue;
 	width : 100%;
 }
 
-
-#timeline
+@media all and (max-width:1024px)
 {
-	display : flex;
-	flex-direction : row;
-	border : 1px solid  red;
+	header
+	{
+		flex-wrap : wrap;
+	}
 }
-
 
 /*SOMMAIRE*/
-
-#sommaire1
-{
-	float : right;
-}
-
 nav
 {
 	flex : 1;
 	text-transform : uppercase;
 	text-align : center;
+	font-size : 1.3em;
 }
 
 #de20
@@ -60,6 +53,7 @@ nav
 nav table
 {
 	margin : auto;
+	width : 70%;
 }
 
 nav td
@@ -67,6 +61,34 @@ nav td
 	border : 1px solid black;
 	padding : 5px 2px 2px 2px;
 }
+
+@media all and (max-width:1024px)
+{
+	#sommaire1:nth-child(1)
+	{
+		order : 2;
+	}
+	
+	#de20:nth-child(2)
+	{
+		order : 1;
+		min-width : 1000px;
+		width : 100%;
+		height : 220px;
+	}
+	
+	#sommaire2:nth-child(3)
+	{
+		order : 3;
+	}
+	
+	nav table
+	{
+		margin : none;
+		width : 100%;
+	}
+}
+
 
 a
 {
@@ -81,15 +103,57 @@ a:hover
 }
 
 /*TIMELINE*/
+
+#timeline
+{
+	display : flex;
+	flex-direction : row;
+	border : 1px solid  red;
+}
+
 #evenement1, #evenement2
 {
 	width : 50%;
+	padding : 20px;;
 }
+
+@media all and (max-width:1024px)
+{
+	#timeline
+	{
+		flex-direction : column;
+	}
+	
+	#evenement1, #evenement2
+	{
+		width : 100%;
+	}
+	
+}
+
 
 #evenement1
 {
 	border-right : 2px solid black;
+}
+
+@media all and (max-width:1024px)
+{
+	#evenement1
+	{
+		border-right : none;
+		border-top : 2px solid black;
+	}
 	
+	#evenement1:nth-child(1)
+	{
+		order : 2;
+	}
+	
+	#evenement2:nth-child(2)
+	{
+		order : 1;
+	}
 }
 
 #evenement1 ul, #evenement2 ul
@@ -100,21 +164,31 @@ a:hover
 /*TITRES*/
 h1
 {
-
 	text-align : center;
 	font-size : 1.6em;
 	text-transform : uppercase;
 }
 
-#evenement1 h1, #evenement2 h1
+h2
 {
 	text-decoration : underline;
 	font-size : 1.4em;
+	font-weight : bold;
+	text-transform : uppercase;
+	text-align : center;
 }
 
-h2
+h3
+{
+	font-weight : bold;
+	font-size : 1.3em
+}
+
+h4
 {
 	font-weight : normal;
+	font-style : italic;
+	font-size : 1.2em
 }
 
 /*TEXTE*/

@@ -57,15 +57,14 @@ nav td
 {
 	border : 1px solid black;
 	padding : 5px 2px 2px 2px;
-	width : 50%;
 }
 
-#tab1
+#nav1
 {
 	margin-right : 2px;
 }
 
-#tab2
+#nav2
 {
 	margin-left : 2px;
 }

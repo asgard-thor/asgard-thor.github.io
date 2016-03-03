@@ -62,15 +62,12 @@ nav
 
 }
 
-nav table
-{
-	width : 50%;
-}
-
 nav td
 {
 	border : 1px solid black;
 	padding : 5px 2px 2px 2px;
+	margin-right : 2px;
+	width : 50%;
 }
 
 a

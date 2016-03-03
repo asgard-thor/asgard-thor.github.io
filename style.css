@@ -43,6 +43,11 @@ header
 	float : right;
 }
 
+#sommaire1
+{
+	float : left;
+}
+
 nav:nth-child(1)
 {
 	flex : 1;
@@ -50,7 +55,7 @@ nav:nth-child(1)
 	text-align : center;
 }
 
-#de20
+#de20:nth-child(2)
 {
 	border : 1px solid green;
 	flex : 2;

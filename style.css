@@ -9,13 +9,27 @@
 body
 {
 	font-family : 'Dumbledor 1', Tahoma, cambria;
-	background-image : url('images/fond_kraft.jpg');
-	background-size : cover;
+	background-image : url('images/entrainement.png');
+	background-color : #c0ab8b;
+	background-attachment : fixed;
+	background-repeat : no-repeat;
+	background-position : right;
+	background-size : contain;
+
+}
+
+@media all and (max-width:1024px)
+{
+	body
+	{
+		background-position : bottom;	
+	}
 }
 
 p
 {
-	font-size : 1.2em;
+	font-size : 1.4em;
+	text-shadow : 0px 0px 4px white;
 }
 
 @media all and (max-width:1024px)
@@ -53,6 +67,7 @@ header
 	header
 	{
 		flex-direction : column;
+		justify-content : wrap;
 	}
 }
 
@@ -77,7 +92,6 @@ nav table
 {
 	margin : auto;
 	width : 70%;
-	border-collapse : collapse;
 }
 
 nav td
@@ -133,7 +147,7 @@ a:hover
 {
 	display : flex;
 	flex-direction : row;
-	background-color : rgba(0,0,0,0.2);
+	background-color : rgba(0,0,0,0.5);
 	box-shadow : 0px 0px 10px black inset;
 }
 
@@ -195,7 +209,7 @@ h1
 	font-size : 1.8em;
 	text-transform : uppercase;
 	text-shadow : 2px 2px 2px black;
-	background-color : rgba(0,0,0,0.2);
+	background-color : rgba(0,0,0,0.5);
 	box-shadow : 0px 0px 10px black inset;
 	padding : 10px;
 	width : 100%;
@@ -219,7 +233,8 @@ h2
 h3
 {
 	font-weight : bold;
-	font-size : 1.3em
+	font-size : 1.3em;
+	text-shadow : 0px 0px 4px white;	
 }
 
 h4

@@ -47,15 +47,18 @@
 			var camera, scene, renderer;
 			var group;
 			var mouseX = 0, mouseY = 0;
-			var scroll = 0;
 
 			var windowHalfX = window.innerWidth / 2;
 			var windowHalfY = window.innerHeight / 2;
+			var raycaster = new THREE.Raycaster();
+			var mouse = new THREE.Vector2();
 
 			init();
 			animate();
 
 			function init() {
+				
+				
 
 				container = document.getElementById( 'container' );
 
@@ -65,9 +68,10 @@
 				scene = new THREE.Scene();
 
 				group = new THREE.Group();
+				
 				scene.add( group );
-
-				// earth
+				
+				
 
 				var loader = new THREE.TextureLoader();
 				loader.load( 'images/image02.jpg', function ( texture ) {
@@ -79,6 +83,8 @@
 					group.add( mesh );
 
 				} );
+				loader.wrapS = THREE.RepeatWrapping;
+				loader.wrapT = THREE.RepeatWrapping;
 
 				
 				group.rotation.z+=0.523599;
@@ -88,7 +94,6 @@
 				document.getElementById('container').appendChild(renderer.domElement);
 
 				document.addEventListener( 'mousemove', onDocumentMouseMove, false );
-				document.addEventListener( 'mousemove', onDocumentScroll, false );
 				//
 
 				window.addEventListener( 'resize', onWindowResize, false );
@@ -111,17 +116,16 @@
 				
 				mouseX = ( event.clientX - windowHalfX );
 				mouseY = ( event.clientY - windowHalfY );
+				//mouse.x = 2 * (event.clientX / windowHalfX) - 1;
+				//mouse.y = 1 - 2 * ( event.clientY / windowHalfY );
+				
+				mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
+				mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;	
+				
 				
 			}
 			
-			function onDocumentScroll( event ) {
-				if (event.scroll)
-				
-					scroll += 0.01;
-				
-				console.log(scroll);
-			}
-
+		
 			
 
 			function animate() {
@@ -137,9 +141,16 @@
 				group.rotation.y += ( mouseX - group.rotation.y ) * 0.00005;
 				//camera.position.y += ( - mouseY - camera.position.y ) * 0.05;
 				camera.lookAt( scene.position );
+				
+				raycaster.setFromCamera( mouse, camera );
+
+				var intersects = raycaster.intersectObjects( scene.children, true );
+
+				if ( intersects.length > 0 ) {
+					console.log(intersects[0]);
+					}
 
 				//group.rotation.y -= 0.005;
-				//group.rotation.y -= 0.005*scroll;
 				
 				renderer.render( scene, camera );
 			}

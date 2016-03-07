@@ -141,6 +141,10 @@ a:hover
 	color : firebrick;
 }
 
+.selected
+{
+	color : firebrick;
+}
 /*TIMELINE*/
 
 #timeline

@@ -34,18 +34,23 @@ function init() {
 	
 	
 
-	var loader = new THREE.TextureLoader();
-	loader.load( 'images/image02.jpg', function ( texture ) {
+	
 
 		var geometry = new THREE.IcosahedronGeometry(200, 0);
+		var geometry2 = new THREE.IcosahedronGeometry(201, 0);
 
-		var material = new THREE.MeshBasicMaterial( { map: texture, overdraw: 0.5 } );
+		var material = new THREE.MeshBasicMaterial( );
+		material.color = 0x000000;
+		
+		var material2 = new THREE.MeshBasicMaterial( );
+		material2.wireframe=true;
+		
 		var mesh = new THREE.Mesh( geometry, material );
+		
+		var mesh2 = new THREE.Mesh( geometry2, material2 );
+		
 		group.add( mesh );
-
-	} );
-	loader.wrapS = THREE.RepeatWrapping;
-	loader.wrapT = THREE.RepeatWrapping;
+		group.add( mesh2 );
 
 	
 	group.rotation.z+=0.523599;

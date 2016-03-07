@@ -257,6 +257,106 @@ function render() {
 	//camera.position.y += ( - mouseY - camera.position.y ) * 0.05;
 	camera.lookAt( scene.position );
 	
+	
+	
+	raycaster.setFromCamera( mouse, camera );
+
+	var intersects = raycaster.intersectObjects( scene.children, true );
+
+	if ( intersects.length > 0 ) {
+		actualFace=intersects[0].faceIndex;
+		}else{
+			actualFace=-1;
+		}
+	//console.log(menu);
+
+	var id;
+	if (actualFace!=lastFace) {
+		if (lastFace!=-1){
+			id=-1;
+			switch(lastFace) {
+				case 4:
+					id=0;
+					break;
+				case 0:
+					id=1;
+					break;
+				case 6:
+					id=2;
+					break;
+				case 15:
+					id=3;
+					break;
+				case 10:
+					id=4;
+					break;
+				case 14:
+					id=5;
+					break;
+				case 13:
+					id=6;
+					break;
+				case 18:
+					id=7;
+					break;
+				case 8:
+					id=8;
+					break;
+				case 3:
+					id=9;
+					break;
+				default:
+					lastFace=-1;
+				}
+			if (id!=-1){
+				menu[id].className="";
+			}
+			
+		}
+		if (actualFace!=-1){
+			id=-1;
+			switch(actualFace) {
+				case 4:
+					id=0;
+					break;
+				case 0:
+					id=1;
+					break;
+				case 6:
+					id=2;
+					break;
+				case 15:
+					id=3;
+					break;
+				case 10:
+					id=4;
+					break;
+				case 14:
+					id=5;
+					break;
+				case 13:
+					id=6;
+					break;
+				case 18:
+					id=7;
+					break;
+				case 8:
+					id=8;
+					break;
+				case 3:
+					id=9;
+					break;
+				default:
+					actualFace=-1;
+				}
+			if (id!=-1){
+				menu[id].className="selected";
+			}
+			
+		}
+		lastFace=actualFace;
+	}
+	
 
 	//group.rotation.y -= 0.005;
 	

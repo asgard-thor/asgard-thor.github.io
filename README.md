@@ -1,5 +1,5 @@
 # vente-robot-wartalixor-
-Participez à l'améliroation de www.venterobot.ca (wartalixor)
+vive www.venterobot.ca (wartalixor)
 
 Pour plus d'information visiter : 
 http://venterobot.ca/

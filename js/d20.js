@@ -31,6 +31,7 @@ function init() {
 	group = new THREE.Group();
 	
 	scene.add( group );
+	scene.add( camera );
 	
 	
 

@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Titre de la page</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- <script src="script.js"></script> -->
+</head>
+<body>
+<form>
+  <table id="table">
+   <tr>
+       <td>Nom</td>
+       <td>Valeur</td>
+       <td>Effet</td>
+	   <td>Rattachement</td>
+   </tr>
+   <tr>
+       <td><input type='text' name='nom' id='nom0' size='10'/></td>
+       <td><input type='text' name='valeur' id='valeur0' size='3' /></td>
+       <td><select name='effet' id='effet0'>
+			<optgroup label='Caractéristiques'>
+				<option value='for'>Force</option>
+				<option value='dex'>Dextérité</option>
+				<option value='con'>Constitution</option>
+				<option value='int'>Intelligence</option>
+				<option value='sag'>Sagesse</option>
+				<option value='cha'>Charisme</option>
+			</optgroup>
+			<optgroup label='Attaque'>
+				<option value='bba'>BBA</option>
+				<option value='cac'>CàC</option>
+				<option value='dist'>Distance</option>
+				<option value='BMC'>BMC</option>
+			</optgroup>
+			<optgroup label='Défense'>
+				<option value='catot'>CA Totale</option>
+				<option value='cacon'>CA de contact</option>
+				<option value='casur'>CA surpris</option>
+				<option value='pv'>PV</option>
+			</optgroup>
+       </select></td>
+       <td><select name='rattachement' id='rattachement0' >
+			<option value='None'>Aucun</option>
+       </select></td>
+   </tr>
+</table>
+</form>
+<button id="add" onClick="addLine()">Ajouterr</button>
+</body>
+</html>
+<script>
+	var nb_lignes=1;
+	function test(value){
+		document.getElementById("valeur").value=value;
+	}
+	
+	function addLine(){
+		var table=document.getElementById("table");
+		var row=table.insertRow(-1);
+		
+		var cell0=row.insertCell(0);
+		var cell1=row.insertCell(1);
+		var cell2=row.insertCell(2);
+		var cell3=row.insertCell(3);
+		
+		var nouveauInput= document.createElement('input');
+		nouveauInput.name = 'nom';
+		nouveauInput.id = 'nom'+nb_lignes;
+		nouveauInput.type = 'text';
+		nouveauInput.size = 10;
+		cell0.appendChild(nouveauInput);
+		
+		nouveauInput= document.createElement('input');
+		nouveauInput.name = 'valeur';
+		nouveauInput.id = 'valeur'+nb_lignes;
+		nouveauInput.type = 'text';
+		nouveauInput.size = 3;
+		cell1.appendChild(nouveauInput);
+		
+		nb_lignes++;
+	}
+	
+</script>

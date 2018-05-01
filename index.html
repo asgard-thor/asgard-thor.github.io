@@ -5,17 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
   <title>Pathfinder</title>
   <link rel="icon" type="image/gif" href="images/favicon.gif" />
-  <!-- <link rel="stylesheet" href="style.css"> -->
+  <link rel="stylesheet" href="style.css">
   <!-- <script src="script.js"></script> -->
 </head>
 <body>
-<table id="table" style="width: 100%;">
+<table id="onglets" style="width: 100%;">
    <tr>
-       <td style="width: 50%;" onClick="change('fp')">fiche perso</td>
-       <td style="width: 50%;" onClick="change('reglage')">reglages</td>
+       <td id="ongletFP" style="width: 50%;border: 1px solid black;" onClick="change('fp')">fichee perso</td>
+       <td id="ongletReglage" style="width: 50%;" onClick="change('reglage')">reglages</td>
    </tr>
 </table>
-<button id="change" onClick="change()">changee</button>
 <span id="reglage">
 <button id="add" onClick="addLine()">Ajouter</button>
 <form>
@@ -28,7 +27,7 @@
    </tr>
    <tr>
        <td><input type='text' name='nom' id='nom0' size='10'/></td>
-       <td><input type='text' name='valeur' id='valeur0' size='3' /></td>
+       <td><input class="number" type='number' name='valeur' id='valeur0' size='3' /></td>
        <td><select name='effet' id='effet0'>
 			<optgroup label='Caractéristiques'>
 				<option value='for'>Force</option>
@@ -65,7 +64,6 @@ ok
 </body>
 </html>
 <script>
-	var visible="reglage";
 	var nb_lignes=1;
 	var effects= new Array();
 	effects["Caractéristiques"]=new Array(new Array('for','Force'),new Array('dex','Dextérité'),new Array('con','Constitution'),new Array('int','Intelligence'),new Array('sag','Sagesse'),new Array('cha','Charisme'))
@@ -113,10 +111,10 @@ ok
 		cell0.appendChild(nouveauInput);
 		
 		nouveauInput= document.createElement('input');
+		nouveauInput.classList.add('number');
 		nouveauInput.name = 'valeur';
 		nouveauInput.id = 'valeur'+nb_lignes;
-		nouveauInput.type = 'text';
-		nouveauInput.size = 3;
+		nouveauInput.type = 'number';
 		cell1.appendChild(nouveauInput);
 		
 		
@@ -138,15 +136,19 @@ ok
 		nb_lignes++;
 	}
 	
-	function change(){
-		if (visible=="reglage"){
+	function change(visible){
+		if (visible=="fp"){
 			document.getElementById("reglage").style.display="none";
-			document.getElementById("fp").style.display="inline";			
+			document.getElementById("fp").style.display="inline";		
+			document.getElementById("ongletReglage").style.border="1px solid black";
+			document.getElementById("ongletFP").style.border="0px";	
 			visible="fp"
 		}
 		else{
 			document.getElementById("fp").style.display="none";
-			document.getElementById("reglage").style.display="inline";			
+			document.getElementById("reglage").style.display="inline";	
+			document.getElementById("ongletFP").style.border="1px solid black";
+			document.getElementById("ongletReglage").style.border="0px";	
 			visible="reglage"
 		}
 	}

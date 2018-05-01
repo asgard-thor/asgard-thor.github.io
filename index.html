@@ -26,9 +26,9 @@
 	   <td>Lien</td>
    </tr>
    <tr>
-       <td><input type='text' name='nom' id='nom0' size='10'/></td>
-       <td><input class="number" type='number' name='valeur' id='valeur0' size='3' /></td>
-       <td><select name='effet' id='effet0'>
+       <td><input type='text' name='nom' id='nom0' size='10' index='0' onchange='tableReglages[0][0]=this.value;'/></td>
+       <td><input class="number" type='number' name='valeur' id='valeur0' size='3' index='0' onchange='tableReglages[0][1]=this.value'/><//></td>
+       <td><select name='effet' id='effet0' index='0' onchange='tableReglages[0][2]=this.value'/></>
 			<optgroup label='Caractéristiques'>
 				<option value='for'>Force</option>
 				<option value='dex'>Dextérité</option>
@@ -50,7 +50,7 @@
 				<option value='pv'>PV</option>
 			</optgroup>
        </select></td>
-       <td><select name='rattachement' id='rattachement0' >
+       <td><select name='rattachement' id='rattachement0' index='0' onClick='genereRattachement(this)'; onchange='tableReglages[0][3]=this.value'/></>
 			<option value='None'>Aucun</option>
        </select></td>
    </tr>
@@ -60,17 +60,87 @@
 </span>
 <span id="fp" style="display:none">
 ok
+	<span id="check">
+		<input type="checkbox" name="frites" id="frites" /> <label for="frites">Frites</label><br />
+
+       <input type="checkbox" name="steak" id="steak" /> <label for="steak">Steak haché</label><br />
+
+       <input type="checkbox" name="epinards" id="epinards" /> <label for="epinards">Epinards</label><br />
+
+       <input type="checkbox" name="huitres" id="huitres" /> <label for="huitres">Huitres</label>
+
+	</span>
 </span>
 </body>
 </html>
 <script>
 	var nb_lignes=1;
+	var tableReglages=new Array(new Array(0,0,"for","None"));
 	var effects= new Array();
 	effects["Caractéristiques"]=new Array(new Array('for','Force'),new Array('dex','Dextérité'),new Array('con','Constitution'),new Array('int','Intelligence'),new Array('sag','Sagesse'),new Array('cha','Charisme'))
 	effects["Attaque"]=new Array(new Array('bba','BBA'),new Array('cac','CàC'),new Array('dist','Distance'),new Array('BMC','BMC'))
 	effects["Défense"]=new Array(new Array('catot','CA Totale'),new Array('cacon','CA de contact'),new Array('casur','CA surpris'),new Array('pv','PV'))
-	function test(value){
-		document.getElementById("valeur").value=value;
+	function test(a,b,id){
+		tableReglages[a][b]=document.getElementById(id).value;
+	}
+	
+	function genereCheck(){
+		elem=document.getElementById("check");
+		while (elem.children.length>0) {
+			elem.children[0].remove();
+		}
+		var nouveauNode;
+		for(var i in tableReglages){
+			if(tableReglages[tableReglages.length-1-i][3]=='None'){
+				nouveauOption=document.createElement('option');
+				nouveauOption.value=tableReglages[tableReglages.length-1-i][0];
+				nouveauOption.innerHTML=tableReglages[tableReglages.length-1-i][0];
+				
+				nouveauNode=document.createElement('input');
+				nouveauNode.type='checkbox';
+				nouveauNode.name=tableReglages[tableReglages.length-1-i][0];
+				nouveauNode.id=tableReglages[tableReglages.length-1-i][0];
+				elem.appendChild(nouveauNode);
+				
+				nouveauNode=document.createElement('label');
+				nouveauNode.setAttribute('for',tableReglages[tableReglages.length-1-i][0]);
+				nouveauNode.innerHTML=tableReglages[tableReglages.length-1-i][0];
+				elem.appendChild(nouveauNode);
+				
+				nouveauNode=document.createElement('br');
+				elem.appendChild(nouveauNode);
+				
+				
+			}
+		}
+	}
+	
+	function genereRattachement(elem){
+		console.log(elem.value);
+		valeur=elem.value;
+		while (elem.children.length>0) {
+			elem.children[0].remove();
+		}
+		var nouveauOption=document.createElement('option');
+		nouveauOption.value='None';
+		nouveauOption.innerHTML="Aucun";
+		elem.appendChild(nouveauOption);
+		
+		for(var i in tableReglages){
+			if(!(i==elem.getAttribute('index')) && tableReglages[i][3]=='None'){
+				nouveauOption=document.createElement('option');
+				nouveauOption.value=tableReglages[i][0];
+				nouveauOption.innerHTML=tableReglages[i][0];
+				elem.appendChild(nouveauOption);
+			}
+		}
+		for(var i in elem.children){
+			if (elem.children[i].value==valeur){
+				elem.children[i].selected=true;
+				
+				console.log(valeur+"ok");
+			}
+		}
 	}
 	
 	function newEffect(num){
@@ -95,19 +165,24 @@ ok
 	}
 	
 	function addLine(){
+		console.log(tableReglages);
 		var table=document.getElementById("table");
 		var row=table.insertRow(1);
+		tableReglages[nb_lignes]=new Array(0,0,"for","None");
 		
 		var cell0=row.insertCell(0);
 		var cell1=row.insertCell(1);
 		var cell2=row.insertCell(2);
 		var cell3=row.insertCell(3);
 		
+		
 		var nouveauInput= document.createElement('input');
 		nouveauInput.name = 'nom';
 		nouveauInput.id = 'nom'+nb_lignes;
 		nouveauInput.type = 'text';
 		nouveauInput.size = 10;
+		nouveauInput.setAttribute("index", nb_lignes);
+		nouveauInput.onchange=function(){tableReglages[this.getAttribute('index')][0]=this.value;};
 		cell0.appendChild(nouveauInput);
 		
 		nouveauInput= document.createElement('input');
@@ -115,20 +190,29 @@ ok
 		nouveauInput.name = 'valeur';
 		nouveauInput.id = 'valeur'+nb_lignes;
 		nouveauInput.type = 'number';
+		nouveauInput.setAttribute("index", nb_lignes);
+		nouveauInput.onchange=function(){tableReglages[this.getAttribute('index')][1]=this.value;};
 		cell1.appendChild(nouveauInput);
 		
 		
 		nouveauInput=newEffect(nb_lignes);
+		nouveauInput.setAttribute("index", nb_lignes);
+		nouveauInput.onchange=function(){tableReglages[this.getAttribute('index')][2]=this.value;};
 		cell2.appendChild(nouveauInput);
 		
 		nouveauInput=document.createElement('select');
 		nouveauInput.name='rattachement';
 		nouveauInput.id='rattachement'+nb_lignes;
+		nouveauInput.setAttribute("index", nb_lignes);
+		nouveauInput.onchange=function(){tableReglages[this.getAttribute('index')][3]=this.value;};
+		nouveauInput.onclick=function(){genereRattachement(this);};
+		
 		nouveauOption=document.createElement('option');
 		nouveauOption.value='None';
 		nouveauOption.innerHTML="Aucun";
 		
 		nouveauInput.appendChild(nouveauOption);
+		
 		
 		cell3.appendChild(nouveauInput);
 		
@@ -142,14 +226,14 @@ ok
 			document.getElementById("fp").style.display="inline";		
 			document.getElementById("ongletReglage").style.border="1px solid black";
 			document.getElementById("ongletFP").style.border="0px";	
-			visible="fp"
+			genereCheck();
 		}
 		else{
 			document.getElementById("fp").style.display="none";
 			document.getElementById("reglage").style.display="inline";	
 			document.getElementById("ongletFP").style.border="1px solid black";
 			document.getElementById("ongletReglage").style.border="0px";	
-			visible="reglage"
+			
 		}
 	}
 	

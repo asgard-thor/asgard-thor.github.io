@@ -3,12 +3,13 @@
 <head>
   <meta charset="utf-8">
   <title>Titre de la page</title>
-  <!-- <link rel="stylesheet" href="style.css">
-   <script src="script.js"></script> -->
+  <link rel="stylesheet" href="style.css">
+  <!-- <script src="script.js"></script> -->
 </head>
 <body>
+<span id="reglage">
 <form>
-  <table id="table">
+  <table id="table" >
    <tr>
        <td>Nom</td>
        <td>Valeur</td>
@@ -46,13 +47,44 @@
    </tr>
 </table>
 </form>
-<button id="add" onClick="addLine()">Ajouterr</button>
+<button id="add" onClick="addLine()">Ajouter</button>
+</span>
+<span id="fp" style="display:none">
+ok
+</span>
+<button id="change" onClick="change()">change</button>
 </body>
 </html>
 <script>
+	var visible="reglage";
 	var nb_lignes=1;
+	var effects= new Array();
+	effects["Caractéristiques"]=new Array(new Array('for','Force'),new Array('dex','Dextérité'),new Array('con','Constitution'),new Array('int','Intelligence'),new Array('sag','Sagesse'),new Array('cha','Charisme'))
+	effects["Attaque"]=new Array(new Array('bba','BBA'),new Array('cac','CàC'),new Array('dist','Distance'),new Array('BMC','BMC'))
+	effects["Défense"]=new Array(new Array('catot','CA Totale'),new Array('cacon','CA de contact'),new Array('casur','CA surpris'),new Array('pv','PV'))
 	function test(value){
 		document.getElementById("valeur").value=value;
+	}
+	
+	function newEffect(num){
+		nouveauEffect= document.createElement('select');
+		nouveauEffect.name='Effet';
+		nouveauEffect.id='Effet'+num;
+		var nouveauOptGroup;
+		var nouveauOption;
+		for(var indice in effects){
+			nouveauOptGroup=document.createElement('optgroup');
+			nouveauOptGroup.label=indice;
+			for (var i in effects[indice]){
+				nouveauOption=document.createElement('option');
+				nouveauOption.value=effects[indice][i][0];
+				nouveauOption.innerHTML=effects[indice][i][1];
+				nouveauOptGroup.appendChild(nouveauOption);
+			}
+			
+			nouveauEffect.appendChild(nouveauOptGroup);
+		}
+		return nouveauEffect;
 	}
 	
 	function addLine(){
@@ -78,7 +110,36 @@
 		nouveauInput.size = 3;
 		cell1.appendChild(nouveauInput);
 		
+		
+		nouveauInput=newEffect(nb_lignes);
+		cell2.appendChild(nouveauInput);
+		
+		nouveauInput=document.createElement('select');
+		nouveauInput.name='rattachement';
+		nouveauInput.id='rattachement'+nb_lignes;
+		nouveauOption=document.createElement('option');
+		nouveauOption.value='None';
+		nouveauOption.innerHTML="Aucun";
+		
+		nouveauInput.appendChild(nouveauOption);
+		
+		cell3.appendChild(nouveauInput);
+		
+		
 		nb_lignes++;
+	}
+	
+	function change(){
+		if (visible=="reglage"){
+			document.getElementById("reglage").style.display="none";
+			document.getElementById("fp").style.display="inline";			
+			visible="fp"
+		}
+		else{
+			document.getElementById("fp").style.display="none";
+			document.getElementById("reglage").style.display="inline";			
+			visible="reglage"
+		}
 	}
 	
 </script>

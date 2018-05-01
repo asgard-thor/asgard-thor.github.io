@@ -7,8 +7,16 @@
   <!-- <link rel="stylesheet" href="style.css"> -->
   <!-- <script src="script.js"></script> -->
 </head>
-<body>
+<body style="width: 100%;">
+<table id="table" style="width: 100%;">
+   <tr>
+       <td style="width: 50%;">fiche perso</td>
+       <td style="width: 50%;">reglages</td>
+   </tr>
+</table>
+<button id="change" onClick="change()">change</button>
 <span id="reglage">
+<button id="add" onClick="addLine()">Ajouter</button>
 <form>
   <table id="table" >
    <tr>
@@ -48,12 +56,11 @@
    </tr>
 </table>
 </form>
-<button id="add" onClick="addLine()">Ajouter</button>
+
 </span>
 <span id="fp" style="display:none">
 ok
 </span>
-<button id="change" onClick="change()">change</button>
 </body>
 </html>
 <script>
@@ -90,7 +97,7 @@ ok
 	
 	function addLine(){
 		var table=document.getElementById("table");
-		var row=table.insertRow(-1);
+		var row=table.insertRow(1);
 		
 		var cell0=row.insertCell(0);
 		var cell1=row.insertCell(1);

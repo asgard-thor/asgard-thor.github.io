@@ -279,6 +279,11 @@
 	function initReglages(){
 		console.log(perso_actuel);
 		nb_lignes=0;
+		elem=document.getElementById("table");
+			elem=elem.children[0];
+			while (elem.children.length>1) {
+				elem.children[1].remove();
+			}
 		jsonTable=lireCookie(perso_actuel+'pathfinder_reglages');
 		if(jsonTable){
 			elem=document.getElementById("table");

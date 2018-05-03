@@ -1,171 +1,222 @@
 <!doctype html>
 <html lang="fr">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-  <title>Pathfinder</title>
-  <link rel="icon" type="image/gif" href="images/favicon.gif" />
-  <link rel="stylesheet" href="style.css">
-  <!-- <script src="script.js"></script> -->
-</head>
-<body>
-<table id="onglets" style="width: 100%;">
-   <tr>
-       <td id="ongletFP" style="width: 50%;border: 1px solid black;" onClick="change('fp')">fiche perso</td>
-       <td id="ongletReglage" style="width: 50%;" onClick="change('reglage')">reglages</td>
-   </tr>
-</table>
-<span id="reglage">
-<button id="add" onClick="addLine()">Ajouter</button>
-<form>
-  <table id="table" >
-   <tr>
-       <td>Nom</td>
-       <td>Valeur</td>
-       <td>Effet</td>
-	   <td>Lien</td>
-   </tr>
-   <tr>
-       <td><input type='text' name='nom' id='nom0' size='10' index='0' onchange='onchangeReglage(0,0,this.value);'/></td>
-       <td><input class="number" type='number' name='valeur' id='valeur0' size='3' index='0' onchange='onchangeReglage(0,1,this.value)'/><//></td>
-       <td><select name='effet' id='effet0' index='0' onchange='onchangeReglage(0,2,this.value)'/></>
-			<optgroup label='Caractéristiques'>
-				<option value='for'>Force</option>
-				<option value='dex'>Dextérité</option>
-				<option value='con'>Constitution</option>
-				<option value='int'>Intelligence</option>
-				<option value='sag'>Sagesse</option>
-				<option value='cha'>Charisme</option>
-				<option value='lvl'>Niveau</option>
-			</optgroup>
-			<optgroup label='Attaque'>
-				<option value='bba'>BBA</option>
-				<option value='cac'>CàC</option>
-				<option value='dist'>Distance</option>
-				<option value='bmc'>BMC</option>
-				<option value='dgt'>Bonus Dégats</option>
-			</optgroup>
-			<optgroup label='Défense'>
-				<option value='catot'>CA Totale</option>
-				<option value='cacon'>CA de contact</option>
-				<option value='casur'>CA surpris</option>
-				<option value='pv'>PV</option>
-			</optgroup>
-       </select></td>
-       <td><select name='rattachement' id='rattachement0' index='0' onClick='genereRattachement(this)'; onchange='onchangeReglage(0,3,this.value)'/></>
-			<option value='None'>Aucun</option>
-       </select></td>
-   </tr>
-</table>
-</form>
-
-</span>
-<span id="fp" style="display:none">
-<table>
-	<tr>
-	<td>
-	<fieldset>
-
-       <legend>Carac</legend>
-			<table>
+	<head>
+	  <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+	  <title>Pathfinder</title>
+	  <link rel="icon" type="image/gif" href="images/favicon.gif" />
+	  <link rel="stylesheet" href="style.css">
+	  <!-- <script src="script.js"></script> -->
+	</head>
+	<body>
+		<table id="onglets" style="width: 100%;">
+		   <tr>
+			   <td id="ongletfp" style="width: 33%;border: 1px solid black;" onClick="change('fp')">Fiche perso</td>
+			   <td id="ongletreglage" style="width: 33%;" onClick="change('reglage')">Reglages</td>
+			   <td id="ongletperso" style="width: 33%;border: 1px solid black;" onClick="change('perso')">Personnages</td>
+		   </tr>
+		</table>
+		<span id="reglage">
+			<button id="add" onClick="addLine()">Ajouter</button>
+			<form>
+				<table id="table" >
 				<tr>
-					<td>For</td><td id='for' style='border: 1px solid black;width:40px'>0</td>
+					<td>Nom</td>
+					<td>Valeur</td>
+					<td>Effet</td>
+					<td>Lien</td>
 				</tr>
-				<tr>
-					<td>Dex</td><td id='dex' style='border: 1px solid black;'>0</td>
-				</tr>
-				<tr>
-					<td>Con</td><td id='con' style='border: 1px solid black;'>0</td>
-				</tr>
-				<tr>
-					<td>Int</td><td id='int' style='border: 1px solid black;'>0</td>
-				</tr>
-				<tr>
-					<td>Sag</td><td id='sag' style='border: 1px solid black;'>0</td>
-				</tr>
-				<tr>
-					<td>Cha</td><td id='cha' style='border: 1px solid black;'>0</td>
-				</tr>
+				<!-- <tr> -->
+					<!-- <td><input type='text' name='nom' id='nom0' size='10' index='0' onchange='onchangeReglage(0,0,this.value);'/></td> -->
+					<!-- <td><input class="number" type='number' name='valeur' id='valeur0' size='3' index='0' onchange='onchangeReglage(0,1,this.value)'/></td> -->
+					<!-- <td><select name='effet' id='effet0' index='0' onchange='onchangeReglage(0,2,this.value)'/> -->
+						<!-- <optgroup label='Caractéristiques'> -->
+							<!-- <option value='for'>Force</option> -->
+							<!-- <option value='dex'>Dextérité</option> -->
+							<!-- <option value='con'>Constitution</option> -->
+							<!-- <option value='int'>Intelligence</option> -->
+							<!-- <option value='sag'>Sagesse</option> -->
+							<!-- <option value='cha'>Charisme</option> -->
+							<!-- <option value='lvl'>Niveau</option> -->
+						<!-- </optgroup> -->
+						<!-- <optgroup label='Attaque'> -->
+							<!-- <option value='bba'>BBA</option> -->
+							<!-- <option value='cac'>CàC</option> -->
+							<!-- <option value='dist'>Distance</option> -->
+							<!-- <option value='bmc'>BMC</option> -->
+							<!-- <option value='dgt'>Bonus Dégats</option> -->
+						<!-- </optgroup> -->
+						<!-- <optgroup label='Défense'> -->
+							<!-- <option value='catot'>CA Totale</option> -->
+							<!-- <option value='cacon'>CA de contact</option> -->
+							<!-- <option value='casur'>CA surpris</option> -->
+							<!-- <option value='pv'>PV</option> -->
+						<!-- </optgroup> -->
+				   <!-- </select></td> -->
+				   <!-- <td><select name='rattachement' id='rattachement0' index='0' onClick='genereRattachement(this)'; onchange='onchangeReglage(0,3,this.value)'/></> -->
+						<!-- <option value='None'>Aucun</option> -->
+				   <!-- </select></td> -->
+			   <!-- </tr> -->
 			</table>
+			</form>
 
-   </fieldset>
-   </td>
-   <td>
-   <table>
-   <tr><td><fieldset>
+		</span>
+		<span id="fp" style="display:none">
+		<table>
+			<tr>
+				<td>
+					<fieldset>
 
-       <legend>Attaque</legend>
-			<table>
-				<tr>
-					<td>BBA</td><td id='bba' style='border: 1px solid black;width:40px'>0</td>
-				</tr>
-				<tr>
-					<td>CàC</td><td id='cac' style='border: 1px solid black;'>0</td>
-				</tr>
-				<tr>
-					<td>Distance</td><td id='dist' style='border: 1px solid black;'>0</td>
-				</tr>
-				<tr>
-					<td>BMC</td><td id='bmc' style='border: 1px solid black;'>0</td>
-				</tr>
-				<tr>
-					<td>Bonus Dégats</td><td id='dgt' style='border: 1px solid black;'>0</td>
-					<td>x 1.5</td><td id='dgt15' style='border: 1px solid black;width:40px'>0</td>
-				</tr>
-			</table>
+					<legend>Carac</legend>
+						<table>
+							<tr>
+								<td>For</td><td id='for' style='border: 1px solid black;width:40px'>0</td>
+							</tr>
+							<tr>
+								<td>Dex</td><td id='dex' style='border: 1px solid black;'>0</td>
+							</tr>
+							<tr>
+								<td>Con</td><td id='con' style='border: 1px solid black;'>0</td>
+							</tr>
+							<tr>
+								<td>Int</td><td id='int' style='border: 1px solid black;'>0</td>
+							</tr>
+							<tr>
+								<td>Sag</td><td id='sag' style='border: 1px solid black;'>0</td>
+							</tr>
+							<tr>
+								<td>Cha</td><td id='cha' style='border: 1px solid black;'>0</td>
+							</tr>
+						
+						
+						</table>
 
+					</fieldset>
+				</td>
+				<td>
+					<table>
+						<tr>
+							<td>
+								<fieldset>
 
+								<legend>Attaque</legend>
+									<table>
+										<tr>
+											<td>BBA</td><td id='bba' style='border: 1px solid black;width:40px'>0</td>
+										</tr>
+										<tr>
+											<td>CàC</td><td id='cac' style='border: 1px solid black;'>0</td>
+										</tr>
+										<tr>
+											<td>Distance</td><td id='dist' style='border: 1px solid black;'>0</td>
+										</tr>
+										<tr>
+											<td>BMC</td><td id='bmc' style='border: 1px solid black;'>0</td>
+										</tr>
+										<tr>
+											<td>Bonus Dégats</td><td id='dgt' style='border: 1px solid black;'>0</td>
+											<td>x 1.5</td><td id='dgt15' style='border: 1px solid black;width:40px'>0</td>
+										</tr>
+									</table>
+								</fieldset>
+							 </td>
 
-   </fieldset></td></tr>
-   <tr><td><fieldset>
+						</tr>
+						<tr>
+							<td>
+								<fieldset>
 
-       <legend>Défense</legend>
-			<table>
-				<tr>
-					<td>PV tot</td><td id='pv' style='border: 1px solid black;width:40px'>0</td>
-				</tr>
-				<tr>
-					<td>CA tot</td><td id='catot' style='border: 1px solid black;'>0</td>
-				</tr>
-				<tr>
-					<td>CA Contact</td><td id='cacon' style='border: 1px solid black;'>0</td>
-				</tr>
-				<tr>
-					<td>DMC</td><td id='dmc' style='border: 1px solid black;'>0</td>
-				</tr>
-			</table>
+								<legend>Défense</legend>
+									<table>
+										<tr>
+											<td>PV</td><td id='pv' style='border: 1px solid black;width:40px'>0</td><td id='pvact' style='border: 1px solid black;width:40px'>0</td>
+										</tr>
+										<tr>
+											<td>CA tot</td><td id='catot' style='border: 1px solid black;'>0</td><td id='plus' style='border: 1px solid black;' onClick='addPV();'>+</td>
+										</tr>
+										<tr>
+											<td>CA Contact</td><td id='cacon' style='border: 1px solid black;'>0</td><td><input class="number" type='number' min='0' name='modifPV' id='modifPV' size='3'/></td>
+										</tr>
+										<tr>
+											<td>DMC</td><td id='dmc' style='border: 1px solid black;'>0</td><td id='moin' style='border: 1px solid black;' onClick='subPV();'>-</td>
+										</tr>
+									</table>
+								</fieldset>
+							</td>
 
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+			<span id="check">
+				<input type="checkbox" name="frites" id="frites" /> <label for="frites">Frites</label><br />
 
+			   <input type="checkbox" name="steak" id="steak" /> <label for="steak">Steak haché</label><br />
 
-   </fieldset></td></tr>
-   </table>
-   </td>
-   </tr>
-</table>
-	<span id="check">
-		<input type="checkbox" name="frites" id="frites" /> <label for="frites">Frites</label><br />
+			   <input type="checkbox" name="epinards" id="epinards" /> <label for="epinards">Epinards</label><br />
 
-       <input type="checkbox" name="steak" id="steak" /> <label for="steak">Steak haché</label><br />
+			   <input type="checkbox" name="huitres" id="huitres" /> <label for="huitres">Huitres</label>
 
-       <input type="checkbox" name="epinards" id="epinards" /> <label for="epinards">Epinards</label><br />
-
-       <input type="checkbox" name="huitres" id="huitres" /> <label for="huitres">Huitres</label>
-
-	</span>
-</span>
-</body>
+			</span>
+		</span>
+		<span id="perso" style="display:none">
+			<select name='personnages' id='personnages' onchange='onchangePerso(this.value)'/>
+			</select>
+			<button id="addPerso" onClick="addPerso()">Ajouter</button>
+			<input type='text' name='inputNomPerso' id='inputNomPerso' style="display:none" size='10' onchange='onaddPerso(this.value);'/>
+		</span>
+	</body>
 </html>
 <script>
-	var nb_lignes=1;
+	var nb_lignes;
 	var tableReglages=new Array(new Array("",0,"for","None"));
 	var effects= new Array();
 	var fichePerso=new Array();
 	var checked=new Array();
+	var persos=new Array();
+	var perso_actuel;
+	var PVmanquant=0;
 	effects["Caractéristiques"]=new Array(new Array('for','Force'),new Array('dex','Dextérité'),new Array('con','Constitution'),new Array('int','Intelligence'),new Array('sag','Sagesse'),new Array('cha','Charisme'),new Array('lvl','Niveau'))
 	effects["Attaque"]=new Array(new Array('bba','BBA'),new Array('cac','CàC'),new Array('dist','Distance'),new Array('bmc','BMC'),new Array('dgt','Bonus Dégats'))
 	effects["Défense"]=new Array(new Array('catot','CA Totale'),new Array('cacon','CA de contact'),new Array('casur','CA surpris'),new Array('pv','PV'))
 	
 	init();
+	
+	function onchangePerso(value){
+		perso_actuel=value;
+	}
+	
+	function addPerso(){
+		document.getElementById("addPerso").style.display="none";
+		document.getElementById("inputNomPerso").style.display="inline";
+	}
+	
+	function onaddPerso(value){
+		document.getElementById("inputNomPerso").style.display="none";
+		document.getElementById("addPerso").style.display="inline";
+		persos[persos.length]=value;
+		perso_actuel=value;
+		
+		
+		document.getElementById("inputNomPerso").value="";
+		jsonTable=JSON.stringify(persos);
+		creerCookie('pathfinder_persos',jsonTable);
+		init();
+	}
+	
+	function addPV(){
+		PVmanquant-=parseInt(document.getElementById('modifPV').value);
+		if(PVmanquant<0){
+			PVmanquant=0;
+		}
+		majfichePerso();
+	}
+	
+	function subPV(){
+		PVmanquant+=parseInt(document.getElementById('modifPV').value);
+		majfichePerso();
+	}
 	
 	function creerCookie(nom, valeur, jours) {
 		// Le nombre de jours est spécifié
@@ -200,17 +251,46 @@
 				// Aucun cookie trouvé
 		return null;
 		}
+		
 	function init(){
-		jsonTable=lireCookie('pathfinder_reglages');
+		change('perso');
+		jsonT=lireCookie('pathfinder_persos');
+		if(jsonT){
+			elem=document.getElementById('personnages')
+			while (elem.children.length>0) {
+				elem.children[0].remove();
+			}
+			var jsonTable=JSON.parse(jsonT);
+			persos=new Array();
+			for(var i in jsonTable){
+				persos[i]=jsonTable[i];
+				nouveauOption=document.createElement('option');
+				nouveauOption.value=persos[i];
+				nouveauOption.innerHTML=persos[i];
+				if (persos[i]==perso_actuel){
+					nouveauOption.selected=true;
+				}
+				elem.appendChild(nouveauOption);
+			
+			}
+		}
+	}
+	
+	function initReglages(){
+		console.log(perso_actuel);
+		nb_lignes=0;
+		jsonTable=lireCookie(perso_actuel+'pathfinder_reglages');
 		if(jsonTable){
-			first=true;
+			elem=document.getElementById("table");
+			elem=elem.children[0];
+			while (elem.children.length>1) {
+				elem.children[1].remove();
+			}
 			var newTable=JSON.parse(jsonTable);
+			tableReglages=new Array();
 			for(var i in newTable){
 				if(!(newTable[i][0]=="")){
-					if(!first){
-						addLine();
-					}
-					console.log(nb_lignes);
+					addLine();
 					document.getElementById('nom'+(nb_lignes-1)).value=newTable[i][0];
 					tableReglages[(nb_lignes-1)][0]=newTable[i][0];
 					
@@ -226,14 +306,13 @@
 					first=false;
 				}
 			}
-			console.log(tableReglages);
 		}
 	}
 	
 	function onchangeReglage(i,j,value){
 		tableReglages[i][j]=value;
 		jsonTable=JSON.stringify(tableReglages);
-		creerCookie('pathfinder_reglages',jsonTable);
+		creerCookie(perso_actuel+'pathfinder_reglages',jsonTable);
 	}
 	
 	function majchecked(){
@@ -246,7 +325,6 @@
 				}
 			}
 		}
-		console.log(checked);
 		majfichePerso();
 	}
 	
@@ -264,8 +342,10 @@
 		}
 		<!-- lvl;bba;casur;cha;con;dex;for;int;sag||pv;cac;dist;bmc;dgt;catot;dgt;cacon; -->
 		fichePerso['pv']+=fichePerso['lvl']*fichePerso['con'];
+		fichePerso['pvact']=fichePerso['pv']-PVmanquant;
 		fichePerso['catot']+=10+fichePerso['dex'];
 		fichePerso['cacon']+=10+fichePerso['dex'];
+		
 		
 		fichePerso['cac']+=fichePerso['bba']+fichePerso['for'];
 		fichePerso['dist']+=fichePerso['bba']+fichePerso['dex'];
@@ -281,7 +361,6 @@
 		}
 		
 		
-		console.log(fichePerso);
 	}
 	
 	function genereCheck(){
@@ -320,7 +399,6 @@
 	}
 	
 	function genereRattachement(elem){
-		console.log(elem.value);
 		valeur=elem.value;
 		while (elem.children.length>0) {
 			elem.children[0].remove();
@@ -342,7 +420,6 @@
 			if (elem.children[i].value==valeur){
 				elem.children[i].selected=true;
 				
-				console.log(valeur+"ok");
 			}
 		}
 	}
@@ -369,7 +446,6 @@
 	}
 	
 	function addLine(){
-		console.log(tableReglages);
 		var table=document.getElementById("table");
 		var row=table.insertRow(1);
 		tableReglages[nb_lignes]=new Array("",0,"for","None");
@@ -425,19 +501,26 @@
 	}
 	
 	function change(visible){
-		if (visible=="fp"){
 			document.getElementById("reglage").style.display="none";
-			document.getElementById("fp").style.display="inline";		
-			document.getElementById("ongletReglage").style.border="1px solid black";
-			document.getElementById("ongletFP").style.border="0px";	
+			document.getElementById("perso").style.display="none";
+			document.getElementById("fp").style.display="none";
+			document.getElementById(visible).style.display="inline";		
+			document.getElementById("ongletreglage").style.border="1px solid black";
+			document.getElementById("ongletperso").style.border="1px solid black";
+			document.getElementById("ongletfp").style.border="1px solid black";
+			document.getElementById("onglet"+visible).style.border="0px";	
+			
+		if (visible=="fp"){
+			initReglages();
+			majfichePerso();
 			genereCheck();
+			
+		}
+		if (visible=='reglage'){
+			initReglages();
 		}
 		else{
-			document.getElementById("fp").style.display="none";
-			document.getElementById("reglage").style.display="inline";	
-			document.getElementById("ongletFP").style.border="1px solid black";
-			document.getElementById("ongletReglage").style.border="0px";	
-			
+		
 		}
 	}
 	

@@ -176,7 +176,7 @@
 	var checked=new Array();
 	var persos=new Array();
 	var perso_actuel;
-	var PVmanquant=0;
+	var PVmanquant=new Array();
 	effects["Caractéristiques"]=new Array(new Array('for','Force'),new Array('dex','Dextérité'),new Array('con','Constitution'),new Array('int','Intelligence'),new Array('sag','Sagesse'),new Array('cha','Charisme'),new Array('lvl','Niveau'))
 	effects["Attaque"]=new Array(new Array('bba','BBA'),new Array('cac','CàC'),new Array('dist','Distance'),new Array('bmc','BMC'),new Array('dgt','Bonus Dégats'))
 	effects["Défense"]=new Array(new Array('catot','CA Totale'),new Array('cacon','CA de contact'),new Array('casur','CA surpris'),new Array('pv','PV'))
@@ -197,6 +197,7 @@
 		document.getElementById("addPerso").style.display="inline";
 		persos[persos.length]=value;
 		perso_actuel=value;
+		PVmanquant[perso_actuel]=0;
 		
 		
 		document.getElementById("inputNomPerso").value="";
@@ -206,28 +207,28 @@
 	}
 	
 	function addPV(){
-		PVmanquant-=parseInt(document.getElementById('modifPV').value);
-		if(PVmanquant<0){
-			PVmanquant=0;
+		PVmanquant[perso_actuel]-=parseInt(document.getElementById('modifPV').value);
+		if(PVmanquant[perso_actuel]<0){
+			PVmanquant[perso_actuel]=0;
 		}
 		majfichePerso();
 	}
 	
 	function subPV(){
-		PVmanquant+=parseInt(document.getElementById('modifPV').value);
+		PVmanquant[perso_actuel]+=parseInt(document.getElementById('modifPV').value);
 		majfichePerso();
 	}
 	
 	function creerCookie(nom, valeur, jours) {
-		// Le nombre de jours est spécifié
-				if (jours) {
+		if (!jours){
+		jours=365;
+		}
+		//console.log(jours);
 		var date = new Date();
 						// Converti le nombre de jour en millisecondes
 		date.setTime(date.getTime()+(jours*24*60*60*1000));
-		var expire = "; expire="+date.toGMTString();
-		}
-				// Aucune valeur de jours spécifiée
-		else var expire = "";
+		var expire = "; expires="+date.toGMTString();
+		
 		document.cookie = nom+"="+valeur+expire+"; path=/";
 		}
 		
@@ -277,7 +278,7 @@
 	}
 	
 	function initReglages(){
-		console.log(perso_actuel);
+		//console.log(perso_actuel);
 		nb_lignes=0;
 		elem=document.getElementById("table");
 			elem=elem.children[0];
@@ -347,7 +348,7 @@
 		}
 		<!-- lvl;bba;casur;cha;con;dex;for;int;sag||pv;cac;dist;bmc;dgt;catot;dgt;cacon; -->
 		fichePerso['pv']+=fichePerso['lvl']*fichePerso['con'];
-		fichePerso['pvact']=fichePerso['pv']-PVmanquant;
+		fichePerso['pvact']=fichePerso['pv']-PVmanquant[perso_actuel];
 		fichePerso['catot']+=10+fichePerso['dex'];
 		fichePerso['cacon']+=10+fichePerso['dex'];
 		
@@ -513,8 +514,9 @@
 			document.getElementById("ongletreglage").style.border="1px solid black";
 			document.getElementById("ongletperso").style.border="1px solid black";
 			document.getElementById("ongletfp").style.border="1px solid black";
-			document.getElementById("onglet"+visible).style.border="0px";	
+			document.getElementById("onglet"+visible).style.border="0px";
 			
+		perso_actuel=document.getElementById("personnages").value;
 		if (visible=="fp"){
 			initReglages();
 			majfichePerso();

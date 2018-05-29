@@ -1,3 +1,23 @@
+/*POLICES*/
+
+@font-face				/*police en plus*/
+{
+    font-family: 'Dumbledor 1';
+    src: url('polices/dum1.ttf') format('truetype');
+}
+
+body
+{
+	font-family : 'Dumbledor 1', Tahoma, cambria;
+	background-image : url('images/entrainement2.png');
+	background-color : #c0ab8b;
+	background-attachment : fixed;
+	background-repeat : no-repeat;
+	background-position : right;
+	background-size : contain;
+
+}
+
 .number {
   width: 3em;
 }

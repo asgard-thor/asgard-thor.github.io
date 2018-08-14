@@ -1,22 +1,24 @@
 <!doctype html>
 <html lang="fr">
-	<head>
-	  <meta charset="utf-8">
-	  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-	  <title>Pathfinder</title>
-	  <link rel="icon" type="image/gif" href="images/favicon.gif" />
-	  <link rel="stylesheet" href="style.css">
-	  <!-- <script src="script.js"></script> -->
-	</head>
-	<body>
-		<table id="onglets" style="width: 100%;">
-		   <tr>
-			   <td id="ongletfp" style="width: 33%;border: 1px solid black;" onClick="change('fp')">Fiche perso</td>
-			   <td id="ongletreglage" style="width: 33%;" onClick="change('reglage')">Reglages</td>
-			   <td id="ongletperso" style="width: 33%;border: 1px solid black;" onClick="change('perso')">Personnages</td>
-		   </tr>
-		</table>
-		<span id="reglage">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+	<title>Pathfinder</title>
+	<link rel="icon" type="image/gif" href="images/favicon.gif" />
+	<link rel="stylesheet" href="style.css">
+	<!-- <script src="script.js"></script> -->
+</head>
+
+<body>
+	<table id="onglets" style="width: 100%;">
+		<tr>
+			<td id="ongletfp" style="width: 33%;border: 1px solid black;" onClick="change('fp')">Fiche perso</td>
+			<td id="ongletreglage" style="width: 33%;" onClick="change('reglage')">Reglages</td>
+			<td id="ongletperso" style="width: 33%;border: 1px solid black;" onClick="change('perso')">Personnages</td>
+		</tr>
+	</table>
+	<span id="reglage">
 			<button id="add" onClick="addLine()">Ajouter</button>
 			<form>
 				<table id="table" >
@@ -26,72 +28,69 @@
 					<td>Effet</td>
 					<td>Lien</td>
 				</tr>
-				<!-- <tr> -->
-					<!-- <td><input type='text' name='nom' id='nom0' size='10' index='0' onchange='onchangeReglage(0,0,this.value);'/></td> -->
-					<!-- <td><input class="number" type='number' name='valeur' id='valeur0' size='3' index='0' onchange='onchangeReglage(0,1,this.value)'/></td> -->
-					<!-- <td><select name='effet' id='effet0' index='0' onchange='onchangeReglage(0,2,this.value)'/> -->
-						<!-- <optgroup label='Caractéristiques'> -->
-							<!-- <option value='for'>Force</option> -->
-							<!-- <option value='dex'>Dextérité</option> -->
-							<!-- <option value='con'>Constitution</option> -->
-							<!-- <option value='int'>Intelligence</option> -->
-							<!-- <option value='sag'>Sagesse</option> -->
-							<!-- <option value='cha'>Charisme</option> -->
-							<!-- <option value='lvl'>Niveau</option> -->
-						<!-- </optgroup> -->
-						<!-- <optgroup label='Attaque'> -->
-							<!-- <option value='bba'>BBA</option> -->
-							<!-- <option value='cac'>CàC</option> -->
-							<!-- <option value='dist'>Distance</option> -->
-							<!-- <option value='bmc'>BMC</option> -->
-							<!-- <option value='dgt'>Bonus Dégats</option> -->
-						<!-- </optgroup> -->
-						<!-- <optgroup label='Défense'> -->
-							<!-- <option value='catot'>CA Totale</option> -->
-							<!-- <option value='cacon'>CA de contact</option> -->
-							<!-- <option value='casur'>CA surpris</option> -->
-							<!-- <option value='pv'>PV</option> -->
-						<!-- </optgroup> -->
-				   <!-- </select></td> -->
-				   <!-- <td><select name='rattachement' id='rattachement0' index='0' onClick='genereRattachement(this)'; onchange='onchangeReglage(0,3,this.value)'/></> -->
-						<!-- <option value='None'>Aucun</option> -->
-				   <!-- </select></td> -->
-			   <!-- </tr> -->
 			</table>
 			</form>
 
 		</span>
-		<span id="fp" style="display:none">
+	<span id="fp" style="display:none">
 		<table>
 			<tr>
 				<td>
-					<fieldset>
+					<table>
+						<tr>
+							<td>
+								<fieldset>
 
-					<legend>Carac</legend>
-						<table>
-							<tr>
-								<td>For</td><td id='for' style='border: 1px solid black;width:40px'>0</td>
-							</tr>
-							<tr>
-								<td>Dex</td><td id='dex' style='border: 1px solid black;'>0</td>
-							</tr>
-							<tr>
-								<td>Con</td><td id='con' style='border: 1px solid black;'>0</td>
-							</tr>
-							<tr>
-								<td>Int</td><td id='int' style='border: 1px solid black;'>0</td>
-							</tr>
-							<tr>
-								<td>Sag</td><td id='sag' style='border: 1px solid black;'>0</td>
-							</tr>
-							<tr>
-								<td>Cha</td><td id='cha' style='border: 1px solid black;'>0</td>
-							</tr>
-						
-						
-						</table>
+									<legend>Carac</legend>
+										<table>
+											<tr>
+												<td>For</td><td id='for' style='border: 1px solid black;width:40px'>0</td>
+											</tr>
+											<tr>
+												<td>Dex</td><td id='dex' style='border: 1px solid black;'>0</td>
+											</tr>
+											<tr>
+												<td>Con</td><td id='con' style='border: 1px solid black;'>0</td>
+											</tr>
+											<tr>
+												<td>Int</td><td id='int' style='border: 1px solid black;'>0</td>
+											</tr>
+											<tr>
+												<td>Sag</td><td id='sag' style='border: 1px solid black;'>0</td>
+											</tr>
+											<tr>
+												<td>Cha</td><td id='cha' style='border: 1px solid black;'>0</td>
+											</tr>
 
-					</fieldset>
+
+										</table>
+								</fieldset>
+							 </td>
+
+						</tr>
+						<tr>
+							<td>
+								<fieldset>
+
+									<legend>JdS</legend>
+										<table>
+											<tr>
+												<td>Réflexes</td><td id='ref' style='border: 1px solid black;width:40px'>0</td>
+											</tr>
+											<tr>
+												<td>Vigueur</td><td id='vig' style='border: 1px solid black;'>0</td>
+											</tr>
+											<tr>
+												<td>Volonté</td><td id='vol' style='border: 1px solid black;'>0</td>
+											</tr>
+
+
+										</table>
+								</fieldset>
+							</td>
+
+						</tr>
+					</table>
 				</td>
 				<td>
 					<table>
@@ -159,376 +158,402 @@
 			   <input type="checkbox" name="huitres" id="huitres" /> <label for="huitres">Huitres</label>
 
 			</span>
-		</span>
-		<span id="perso" style="display:none">
+	</span>
+	<span id="perso" style="display:none">
 			<select name='personnages' id='personnages' onchange='onchangePerso(this.value)'/>
 			</select>
 			<button id="addPerso" onClick="addPerso()">Ajouter</button>
 			<input type='text' name='inputNomPerso' id='inputNomPerso' style="display:none" size='10' onchange='onaddPerso(this.value);'/>
 		</span>
-	</body>
+</body>
+
 </html>
 <script>
 	var nb_lignes;
-	var tableReglages=new Array(new Array("",0,"for","None"));
-	var effects= new Array();
-	var fichePerso=new Array();
-	var checked=new Array();
-	var persos=new Array();
+	var tableReglages = new Array(new Array("", 0, "for", "None"));
+	var effects = new Array();
+	var fichePerso = new Array();
+	var checked = new Array();
+	var persos = new Array();
 	var perso_actuel;
-	var PVmanquant=new Array();
-	effects["Caractéristiques"]=new Array(new Array('for','Force'),new Array('dex','Dextérité'),new Array('con','Constitution'),new Array('int','Intelligence'),new Array('sag','Sagesse'),new Array('cha','Charisme'),new Array('lvl','Niveau'))
-	effects["Attaque"]=new Array(new Array('bba','BBA'),new Array('cac','CàC'),new Array('dist','Distance'),new Array('bmc','BMC'),new Array('dgt','Bonus Dégats'))
-	effects["Défense"]=new Array(new Array('catot','CA Totale'),new Array('cacon','CA de contact'),new Array('casur','CA surpris'),new Array('pv','PV'))
-	
+	var PVmanquant = new Array();
+	effects["Caractéristiques"] = new Array(new Array('for', 'Force'), new Array('dex', 'Dextérité'), new Array('con', 'Constitution'), new Array('int', 'Intelligence'), new Array('sag', 'Sagesse'), new Array('cha', 'Charisme'), new Array('lvl',
+		'Niveau'));
+	effects["Attaque"] = new Array(new Array('bba', 'BBA'), new Array('cac', 'CàC'), new Array('dist', 'Distance'), new Array('bmc', 'BMC'), new Array('dgt', 'Bonus Dégats'));
+	effects["Défense"] = new Array(new Array('catot', 'CA Totale'), new Array('cacon', 'CA de contact'), new Array('casur', 'CA surpris'), new Array('pv', 'PV'));
+	effects["JDS"] = new Array(new Array('ref', 'Réflexes'), new Array('vig', 'Vigueur'), new Array('vol', 'Volonté'));
+
+
 	init();
-	
-	function onchangePerso(value){
-		perso_actuel=value;
+
+	function onchangePerso(value) {
+		perso_actuel = value;
 	}
-	
-	function addPerso(){
-		document.getElementById("addPerso").style.display="none";
-		document.getElementById("inputNomPerso").style.display="inline";
+
+	function addPerso() {
+		document.getElementById("addPerso").style.display = "none";
+		document.getElementById("inputNomPerso").style.display = "inline";
 	}
-	
-	function onaddPerso(value){
-		document.getElementById("inputNomPerso").style.display="none";
-		document.getElementById("addPerso").style.display="inline";
-		persos[persos.length]=value;
-		perso_actuel=value;
-		PVmanquant[perso_actuel]=0;
-		
-		
-		document.getElementById("inputNomPerso").value="";
-		jsonTable=JSON.stringify(persos);
-		creerCookie('pathfinder_persos',jsonTable);
+
+	function onaddPerso(value) {
+		document.getElementById("inputNomPerso").style.display = "none";
+		document.getElementById("addPerso").style.display = "inline";
+		persos[persos.length] = value;
+		perso_actuel = value;
+		PVmanquant[perso_actuel] = 0;
+		creerCookie(perso_actuel + "PVmanquant", 0);
+
+
+		document.getElementById("inputNomPerso").value = "";
+		jsonTable = JSON.stringify(persos);
+		creerCookie('pathfinder_persos', jsonTable);
 		init();
 	}
-	
-	function addPV(){
-		PVmanquant[perso_actuel]-=parseInt(document.getElementById('modifPV').value);
-		if(PVmanquant[perso_actuel]<0){
-			PVmanquant[perso_actuel]=0;
+
+	function addPV() {
+		PVmanquant[perso_actuel] = parseInt(PVmanquant[perso_actuel]) - parseInt(document.getElementById('modifPV').value);
+		if (PVmanquant[perso_actuel] < 0) {
+			PVmanquant[perso_actuel] = 0;
 		}
+		creerCookie(perso_actuel + "PVmanquant", PVmanquant[perso_actuel]);
 		majfichePerso();
 	}
-	
-	function subPV(){
-		PVmanquant[perso_actuel]+=parseInt(document.getElementById('modifPV').value);
+
+	function subPV() {
+		PVmanquant[perso_actuel] = parseInt(document.getElementById('modifPV').value) + parseInt(PVmanquant[perso_actuel]);
+		creerCookie(perso_actuel + "PVmanquant", PVmanquant[perso_actuel]);
 		majfichePerso();
 	}
-	
+
 	function creerCookie(nom, valeur, jours) {
-		if (!jours){
-		jours=365;
+		if (!jours) {
+			jours = 365;
 		}
 		//console.log(jours);
 		var date = new Date();
-						// Converti le nombre de jour en millisecondes
-		date.setTime(date.getTime()+(jours*24*60*60*1000));
-		var expire = "; expires="+date.toGMTString();
-		
-		document.cookie = nom+"="+valeur+expire+"; path=/";
-		}
-		
+		// Converti le nombre de jour en millisecondes
+		date.setTime(date.getTime() + (jours * 24 * 60 * 60 * 1000));
+		var expire = "; expires=" + date.toGMTString();
+
+		document.cookie = nom + "=" + valeur + expire + "; path=/";
+	}
+
 	function lireCookie(nom) {
 		// Ajoute le signe égale virgule au nom
-				// pour la recherche
-				var nom2 = nom + "=";
-				// Array contenant tous les cookies
+		// pour la recherche
+		var nom2 = nom + "=";
+		// Array contenant tous les cookies
 		var arrCookies = document.cookie.split(';');
-				// Cherche l'array pour le cookie en question
-		for(var i=0;i < arrCookies.length;i++) {
-		var a = arrCookies[i];
-		// Si c'est un espace, enlever
-						while (a.charAt(0)==' ') {
-						  a = a.substring(1,a.length);
-						}
-		if (a.indexOf(nom2) == 0) {
-						  return a.substring(nom2.length,a.length);
-						}
+		// Cherche l'array pour le cookie en question
+		for (var i = 0; i < arrCookies.length; i++) {
+			var a = arrCookies[i];
+			// Si c'est un espace, enlever
+			while (a.charAt(0) == ' ') {
+				a = a.substring(1, a.length);
+			}
+			if (a.indexOf(nom2) == 0) {
+				return a.substring(nom2.length, a.length);
+			}
 		}
-				// Aucun cookie trouvé
+		// Aucun cookie trouvé
 		return null;
-		}
-		
-	function init(){
+	}
+
+	function init() {
 		change('perso');
-		jsonT=lireCookie('pathfinder_persos');
-		if(jsonT){
-			elem=document.getElementById('personnages')
-			while (elem.children.length>0) {
+		jsonT = lireCookie('pathfinder_persos');
+		if (jsonT) {
+			elem = document.getElementById('personnages')
+			while (elem.children.length > 0) {
 				elem.children[0].remove();
 			}
-			var jsonTable=JSON.parse(jsonT);
-			persos=new Array();
-			for(var i in jsonTable){
-				persos[i]=jsonTable[i];
-				nouveauOption=document.createElement('option');
-				nouveauOption.value=persos[i];
-				nouveauOption.innerHTML=persos[i];
-				if (persos[i]==perso_actuel){
-					nouveauOption.selected=true;
+			var jsonTable = JSON.parse(jsonT);
+			persos = new Array();
+			for (var i in jsonTable) {
+				persos[i] = jsonTable[i];
+				nouveauOption = document.createElement('option');
+				nouveauOption.value = persos[i];
+				nouveauOption.innerHTML = persos[i];
+				if (persos[i] == perso_actuel) {
+					nouveauOption.selected = true;
 				}
 				elem.appendChild(nouveauOption);
-			
+
 			}
 		}
 	}
-	
-	function initReglages(){
+
+	function initReglages() {
 		//console.log(perso_actuel);
-		nb_lignes=0;
-		elem=document.getElementById("table");
-			elem=elem.children[0];
-			while (elem.children.length>1) {
+		nb_lignes = 0;
+		elem = document.getElementById("table");
+		elem = elem.children[0];
+		while (elem.children.length > 1) {
+			elem.children[1].remove();
+		}
+		jsonTable = lireCookie(perso_actuel + 'pathfinder_reglages');
+		PVmanquant[perso_actuel] = lireCookie(perso_actuel + 'PVmanquant');
+		if (PVmanquant[perso_actuel] === null) {
+			PVmanquant[perso_actuel] = 0;
+			creerCookie(perso_actuel + 'PVmanquant', 0)
+		}
+		if (jsonTable) {
+			elem = document.getElementById("table");
+			elem = elem.children[0];
+			while (elem.children.length > 1) {
 				elem.children[1].remove();
 			}
-		jsonTable=lireCookie(perso_actuel+'pathfinder_reglages');
-		if(jsonTable){
-			elem=document.getElementById("table");
-			elem=elem.children[0];
-			while (elem.children.length>1) {
-				elem.children[1].remove();
-			}
-			var newTable=JSON.parse(jsonTable);
-			tableReglages=new Array();
-			for(var i in newTable){
-				if(!(newTable[i][0]=="")){
+			var newTable = JSON.parse(jsonTable);
+			tableReglages = new Array();
+			for (var i in newTable) {
+				if (!(newTable[i][0] == "")) {
 					addLine();
-					document.getElementById('nom'+(nb_lignes-1)).value=newTable[i][0];
-					tableReglages[(nb_lignes-1)][0]=newTable[i][0];
-					
-					document.getElementById('valeur'+(nb_lignes-1)).value=newTable[i][1];
-					tableReglages[(nb_lignes-1)][1]=newTable[i][1];
-					
-					document.getElementById('effet'+(nb_lignes-1)).value=newTable[i][2];
-					tableReglages[(nb_lignes-1)][2]=newTable[i][2];
-					
-					genereRattachement(document.getElementById('rattachement'+(nb_lignes-1)))
-					document.getElementById('rattachement'+(nb_lignes-1)).value=newTable[i][3];
-					tableReglages[(nb_lignes-1)][3]=newTable[i][3];
-					first=false;
+					document.getElementById('nom' + (nb_lignes - 1)).value = newTable[i][0];
+					tableReglages[(nb_lignes - 1)][0] = newTable[i][0];
+
+					document.getElementById('valeur' + (nb_lignes - 1)).value = newTable[i][1];
+					tableReglages[(nb_lignes - 1)][1] = newTable[i][1];
+
+					document.getElementById('effet' + (nb_lignes - 1)).value = newTable[i][2];
+					tableReglages[(nb_lignes - 1)][2] = newTable[i][2];
+
+					genereRattachement(document.getElementById('rattachement' + (nb_lignes - 1)))
+					document.getElementById('rattachement' + (nb_lignes - 1)).value = newTable[i][3];
+					tableReglages[(nb_lignes - 1)][3] = newTable[i][3];
+					first = false;
 				}
 			}
 		}
 	}
-	
-	function onchangeReglage(i,j,value){
-		tableReglages[i][j]=value;
-		jsonTable=JSON.stringify(tableReglages);
-		creerCookie(perso_actuel+'pathfinder_reglages',jsonTable);
+
+	function onchangeReglage(i, j, value) {
+		tableReglages[i][j] = value;
+		jsonTable = JSON.stringify(tableReglages);
+		creerCookie(perso_actuel + 'pathfinder_reglages', jsonTable);
 	}
-	
-	function majchecked(){
-		var children=document.getElementById('check').children;
-		checked=new Array();
-		for(var i in children){
-			if (children[i].tagName=='INPUT' || children[i].tagName=='input'){
-				if(children[i].checked){
-					checked[checked.length]=children[i].name;
+
+	function majchecked() {
+		var children = document.getElementById('check').children;
+		checked = new Array();
+		for (var i in children) {
+			if (children[i].tagName == 'INPUT' || children[i].tagName == 'input') {
+				if (children[i].checked) {
+					checked[checked.length] = children[i].name;
 				}
 			}
 		}
 		majfichePerso();
 	}
-	
-	function majfichePerso(){
-		fichePerso=new Array();
-		for(var i in effects){
-			for(var j in effects[i]){
-				fichePerso[effects[i][j][0]]=0;
+
+	function majfichePerso() {
+		fichePerso = new Array();
+		for (var i in effects) {
+			for (var j in effects[i]) {
+				fichePerso[effects[i][j][0]] = 0;
 			}
 		}
-		for(var i in tableReglages){
-			if(checked.indexOf(tableReglages[i][0])!=-1 || checked.indexOf(tableReglages[i][3])!=-1){
-				fichePerso[tableReglages[i][2]]+=parseInt(tableReglages[i][1]);
+		for (var i in tableReglages) {
+			if (checked.indexOf(tableReglages[i][0]) != -1 || checked.indexOf(tableReglages[i][3]) != -1) {
+				fichePerso[tableReglages[i][2]] += parseInt(tableReglages[i][1]);
 			}
 		}
 		<!-- lvl;bba;casur;cha;con;dex;for;int;sag||pv;cac;dist;bmc;dgt;catot;dgt;cacon; -->
-		fichePerso['pv']+=fichePerso['lvl']*fichePerso['con'];
-		fichePerso['pvact']=fichePerso['pv']-PVmanquant[perso_actuel];
-		fichePerso['catot']+=10+fichePerso['dex'];
-		fichePerso['cacon']+=10+fichePerso['dex'];
-		
-		
-		fichePerso['cac']+=fichePerso['bba']+fichePerso['for'];
-		fichePerso['dist']+=fichePerso['bba']+fichePerso['dex'];
-		fichePerso['bmc']+=fichePerso['bba']+fichePerso['for'];
-		fichePerso['dgt']+=fichePerso['for'];
-		fichePerso['dgt15']=fichePerso['dgt']+fichePerso['for']*0.5;
-		fichePerso['dmc']=10+fichePerso['bba']+fichePerso['for']+fichePerso['dex'];
-		
-		for(var i in fichePerso){
-			if(document.getElementById(i)){
-				document.getElementById(i).innerHTML=fichePerso[i];
+		fichePerso['pv'] += fichePerso['lvl'] * fichePerso['con'];
+		fichePerso['pvact'] = fichePerso['pv'] - PVmanquant[perso_actuel];
+		fichePerso['catot'] += 10 + fichePerso['dex'];
+		fichePerso['cacon'] += 10 + fichePerso['dex'];
+
+
+		fichePerso['cac'] += fichePerso['bba'] + fichePerso['for'];
+		fichePerso['dist'] += fichePerso['bba'] + fichePerso['dex'];
+		fichePerso['bmc'] += fichePerso['bba'] + fichePerso['for'];
+		fichePerso['dgt'] += fichePerso['for'];
+		fichePerso['dgt15'] = fichePerso['dgt'] + fichePerso['for'] * 0.5;
+		fichePerso['dmc'] = 10 + fichePerso['bba'] + fichePerso['for'] + fichePerso['dex'];
+
+		fichePerso['vol'] += fichePerso['sag'];
+		fichePerso['ref'] += fichePerso['dex'];
+		fichePerso['vig'] += fichePerso['con'];
+
+		for (var i in fichePerso) {
+			if (document.getElementById(i)) {
+				document.getElementById(i).innerHTML = fichePerso[i];
 			}
 		}
-		
-		
+
+
 	}
-	
-	function genereCheck(){
-		elem=document.getElementById("check");
-		while (elem.children.length>0) {
+
+	function genereCheck() {
+		elem = document.getElementById("check");
+		while (elem.children.length > 0) {
 			elem.children[0].remove();
 		}
 		var nouveauNode;
-		for(var i in tableReglages){
-			if(tableReglages[tableReglages.length-1-i][3]=='None'){
-				nouveauOption=document.createElement('option');
-				nouveauOption.value=tableReglages[tableReglages.length-1-i][0];
-				nouveauOption.innerHTML=tableReglages[tableReglages.length-1-i][0];
-				
-				nouveauNode=document.createElement('input');
-				nouveauNode.type='checkbox';
-				nouveauNode.name=tableReglages[tableReglages.length-1-i][0];
-				nouveauNode.id=tableReglages[tableReglages.length-1-i][0];
-				nouveauNode.onchange=function(){majchecked();};
-				if(checked.indexOf(nouveauNode.name)!=-1){
-					nouveauNode.checked=true;
+		for (var i in tableReglages) {
+			if (tableReglages[tableReglages.length - 1 - i][3] == 'None') {
+				nouveauOption = document.createElement('option');
+				nouveauOption.value = tableReglages[tableReglages.length - 1 - i][0];
+				nouveauOption.innerHTML = tableReglages[tableReglages.length - 1 - i][0];
+
+				nouveauNode = document.createElement('input');
+				nouveauNode.type = 'checkbox';
+				nouveauNode.name = tableReglages[tableReglages.length - 1 - i][0];
+				nouveauNode.id = tableReglages[tableReglages.length - 1 - i][0];
+				nouveauNode.onchange = function() {
+					majchecked();
+				};
+				if (checked.indexOf(nouveauNode.name) != -1) {
+					nouveauNode.checked = true;
 				}
 				elem.appendChild(nouveauNode);
-				
-				nouveauNode=document.createElement('label');
-				nouveauNode.setAttribute('for',tableReglages[tableReglages.length-1-i][0]);
-				nouveauNode.innerHTML=tableReglages[tableReglages.length-1-i][0];
+
+				nouveauNode = document.createElement('label');
+				nouveauNode.setAttribute('for', tableReglages[tableReglages.length - 1 - i][0]);
+				nouveauNode.innerHTML = tableReglages[tableReglages.length - 1 - i][0];
 				elem.appendChild(nouveauNode);
-				
-				nouveauNode=document.createElement('br');
+
+				nouveauNode = document.createElement('br');
 				elem.appendChild(nouveauNode);
-				
-				
+
+
 			}
 		}
 	}
-	
-	function genereRattachement(elem){
-		valeur=elem.value;
-		while (elem.children.length>0) {
+
+	function genereRattachement(elem) {
+		valeur = elem.value;
+		while (elem.children.length > 0) {
 			elem.children[0].remove();
 		}
-		var nouveauOption=document.createElement('option');
-		nouveauOption.value='None';
-		nouveauOption.innerHTML="Aucun";
+		var nouveauOption = document.createElement('option');
+		nouveauOption.value = 'None';
+		nouveauOption.innerHTML = "Aucun";
 		elem.appendChild(nouveauOption);
-		
-		for(var i in tableReglages){
-			if(!(i==elem.getAttribute('index')) && tableReglages[i][3]=='None'){
-				nouveauOption=document.createElement('option');
-				nouveauOption.value=tableReglages[i][0];
-				nouveauOption.innerHTML=tableReglages[i][0];
+
+		for (var i in tableReglages) {
+			if (!(i == elem.getAttribute('index')) && tableReglages[i][3] == 'None') {
+				nouveauOption = document.createElement('option');
+				nouveauOption.value = tableReglages[i][0];
+				nouveauOption.innerHTML = tableReglages[i][0];
 				elem.appendChild(nouveauOption);
 			}
 		}
-		for(var i in elem.children){
-			if (elem.children[i].value==valeur){
-				elem.children[i].selected=true;
-				
+		for (var i in elem.children) {
+			if (elem.children[i].value == valeur) {
+				elem.children[i].selected = true;
+
 			}
 		}
 	}
-	
-	function newEffect(num){
-		nouveauEffect= document.createElement('select');
-		nouveauEffect.name='effet';
-		nouveauEffect.id='effet'+num;
+
+	function newEffect(num) {
+		nouveauEffect = document.createElement('select');
+		nouveauEffect.name = 'effet';
+		nouveauEffect.id = 'effet' + num;
 		var nouveauOptGroup;
 		var nouveauOption;
-		for(var indice in effects){
-			nouveauOptGroup=document.createElement('optgroup');
-			nouveauOptGroup.label=indice;
-			for (var i in effects[indice]){
-				nouveauOption=document.createElement('option');
-				nouveauOption.value=effects[indice][i][0];
-				nouveauOption.innerHTML=effects[indice][i][1];
+		for (var indice in effects) {
+			nouveauOptGroup = document.createElement('optgroup');
+			nouveauOptGroup.label = indice;
+			for (var i in effects[indice]) {
+				nouveauOption = document.createElement('option');
+				nouveauOption.value = effects[indice][i][0];
+				nouveauOption.innerHTML = effects[indice][i][1];
 				nouveauOptGroup.appendChild(nouveauOption);
 			}
-			
+
 			nouveauEffect.appendChild(nouveauOptGroup);
 		}
 		return nouveauEffect;
 	}
-	
-	function addLine(){
-		var table=document.getElementById("table");
-		var row=table.insertRow(1);
-		tableReglages[nb_lignes]=new Array("",0,"for","None");
-		
-		var cell0=row.insertCell(0);
-		var cell1=row.insertCell(1);
-		var cell2=row.insertCell(2);
-		var cell3=row.insertCell(3);
-		
-		
-		var nouveauInput= document.createElement('input');
+
+	function addLine() {
+		var table = document.getElementById("table");
+		var row = table.insertRow(1);
+		tableReglages[nb_lignes] = new Array("", 0, "for", "None");
+
+		var cell0 = row.insertCell(0);
+		var cell1 = row.insertCell(1);
+		var cell2 = row.insertCell(2);
+		var cell3 = row.insertCell(3);
+
+
+		var nouveauInput = document.createElement('input');
 		nouveauInput.name = 'nom';
-		nouveauInput.id = 'nom'+nb_lignes;
+		nouveauInput.id = 'nom' + nb_lignes;
 		nouveauInput.type = 'text';
 		nouveauInput.size = 10;
 		nouveauInput.setAttribute("index", nb_lignes);
-		nouveauInput.onchange=function(){onchangeReglage(this.getAttribute('index'),0,this.value)};
+		nouveauInput.onchange = function() {
+			onchangeReglage(this.getAttribute('index'), 0, this.value)
+		};
 		cell0.appendChild(nouveauInput);
-		
-		nouveauInput= document.createElement('input');
+
+		nouveauInput = document.createElement('input');
 		nouveauInput.classList.add('number');
 		nouveauInput.name = 'valeur';
-		nouveauInput.id = 'valeur'+nb_lignes;
+		nouveauInput.id = 'valeur' + nb_lignes;
 		nouveauInput.type = 'number';
 		nouveauInput.setAttribute("index", nb_lignes);
-		nouveauInput.onchange=function(){onchangeReglage(this.getAttribute('index'),1,this.value)};
+		nouveauInput.onchange = function() {
+			onchangeReglage(this.getAttribute('index'), 1, this.value)
+		};
 		cell1.appendChild(nouveauInput);
-		
-		
-		nouveauInput=newEffect(nb_lignes);
+
+
+		nouveauInput = newEffect(nb_lignes);
 		nouveauInput.setAttribute("index", nb_lignes);
-		nouveauInput.onchange=function(){onchangeReglage(this.getAttribute('index'),2,this.value)};
+		nouveauInput.onchange = function() {
+			onchangeReglage(this.getAttribute('index'), 2, this.value)
+		};
 		cell2.appendChild(nouveauInput);
-		
-		nouveauInput=document.createElement('select');
-		nouveauInput.name='rattachement';
-		nouveauInput.id='rattachement'+nb_lignes;
+
+		nouveauInput = document.createElement('select');
+		nouveauInput.name = 'rattachement';
+		nouveauInput.id = 'rattachement' + nb_lignes;
 		nouveauInput.setAttribute("index", nb_lignes);
-		nouveauInput.onchange=function(){onchangeReglage(this.getAttribute('index'),3,this.value)};
-		nouveauInput.onclick=function(){genereRattachement(this);};
-		
-		nouveauOption=document.createElement('option');
-		nouveauOption.value='None';
-		nouveauOption.innerHTML="Aucun";
-		
+		nouveauInput.onchange = function() {
+			onchangeReglage(this.getAttribute('index'), 3, this.value)
+		};
+		nouveauInput.onclick = function() {
+			genereRattachement(this);
+		};
+
+		nouveauOption = document.createElement('option');
+		nouveauOption.value = 'None';
+		nouveauOption.innerHTML = "Aucun";
+
 		nouveauInput.appendChild(nouveauOption);
-		
-		
+
+
 		cell3.appendChild(nouveauInput);
-		
-		
+
+
 		nb_lignes++;
 	}
-	
-	function change(visible){
-			document.getElementById("reglage").style.display="none";
-			document.getElementById("perso").style.display="none";
-			document.getElementById("fp").style.display="none";
-			document.getElementById(visible).style.display="inline";		
-			document.getElementById("ongletreglage").style.border="1px solid black";
-			document.getElementById("ongletperso").style.border="1px solid black";
-			document.getElementById("ongletfp").style.border="1px solid black";
-			document.getElementById("onglet"+visible).style.border="0px";
-			
-		perso_actuel=document.getElementById("personnages").value;
-		if (visible=="fp"){
+
+	function change(visible) {
+		document.getElementById("reglage").style.display = "none";
+		document.getElementById("perso").style.display = "none";
+		document.getElementById("fp").style.display = "none";
+		document.getElementById(visible).style.display = "inline";
+		document.getElementById("ongletreglage").style.border = "1px solid black";
+		document.getElementById("ongletperso").style.border = "1px solid black";
+		document.getElementById("ongletfp").style.border = "1px solid black";
+		document.getElementById("onglet" + visible).style.border = "0px";
+
+		perso_actuel = document.getElementById("personnages").value;
+		if (visible == "fp") {
 			initReglages();
 			majfichePerso();
 			genereCheck();
-			
+
 		}
-		if (visible=='reglage'){
+		if (visible == 'reglage') {
 			initReglages();
-		}
-		else{
-		
+		} else {
+
 		}
 	}
-	
 </script>

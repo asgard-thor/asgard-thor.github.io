@@ -11,6 +11,7 @@ var lastFace= -1, actualFace=-1;
 var menu;
 
 init();
+console.log("yolo");
 animate();
 
 function init() {
@@ -41,7 +42,7 @@ function init() {
 		var geometry2 = new THREE.IcosahedronGeometry(201, 0);
 
 		var material = new THREE.MeshBasicMaterial( );
-		material.color = 0x000000;
+		material.color = new THREE.Color( 0x000000 );
 		
 		var material2 = new THREE.MeshBasicMaterial( );
 		material2.wireframe=true;
